@@ -1,0 +1,16 @@
+{
+  "name": "water-intake-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Water Intake Tracker - static frontend + Express API on one Vercel project",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "pg": "^8.23.1"
+  }
+}

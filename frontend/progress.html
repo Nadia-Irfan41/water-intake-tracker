@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress - Water Intake Tracker</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="progress.css">
+  <script src="guard.js"></script>
+  <script src="icons.js"></script>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><img src="assets/water-logo.png" alt="Logo"><span>Water Intake<br>Tracker</span></div>
+    <nav class="menu">
+      <a href="dashboard.html"><span class="ic" data-i="home"></span> Dashboard</a>
+      <a href="water-intake.html"><span class="ic" data-i="droplet"></span> Water Intake</a>
+      <a href="progress.html" class="active"><span class="ic" data-i="chart"></span> Progress</a>
+      <a href="history.html"><span class="ic" data-i="calendar"></span> History</a>
+      <a href="profile.html"><span class="ic" data-i="user"></span> Profile</a>
+      <a href="index.html" id="logoutLink"><span class="ic" data-i="logout"></span> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="Open menu"><span class="ic" data-i="menu"></span></button>
+      <div class="greet"><h1>Progress &amp; Statistics</h1><p>Understand your hydration habits and track your improvement.</p></div>
+      <div class="top-right">
+        <div class="seg" role="tablist" aria-label="Time period">
+          <button class="active" data-p="week" role="tab">Week</button>
+          <button data-p="month" role="tab">Month</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="stats">
+        <div class="stat"><span class="ico"><span class="ic" data-i="droplet"></span></span><div><small>Average Daily Intake</small><strong id="sAvg">-</strong></div></div>
+        <div class="stat"><span class="ico"><span class="ic" data-i="check-circle"></span></span><div><small>Goal Completion</small><strong id="sPct">-</strong></div></div>
+        <div class="stat"><span class="ico"><span class="ic" data-i="target"></span></span><div><small>Goals Completed</small><strong id="sDays">-</strong></div></div>
+        <div class="stat"><span class="ico"><span class="ic" data-i="trophy"></span></span><div><small>Best Day</small><strong id="sBest">-</strong></div></div>
+      </div>
+
+      <div class="card chart-card" id="weekCard">
+        <h3>Weekly Water Intake <small>Goal line: <span class="goalTxt">Not set</span></small></h3>
+        <div class="bars" id="bars"></div>
+      </div>
+      <div class="card chart-card" id="monthCard" hidden>
+        <h3>Monthly Water Intake <small>Weekly average · Goal line: <span class="goalTxt">Not set</span></small></h3>
+        <div id="line"></div>
+      </div>
+
+      <div class="card insight">
+        <h3><span class="ic" data-i="bulb"></span> Your Hydration Insight</h3>
+        <p id="insight"></p>
+      </div>
+    </section>
+  </div>
+  <script src="layout.js"></script>
+  <script src="reminders.js"></script>
+  <script src="progress.js"></script>
+</body>
+</html>

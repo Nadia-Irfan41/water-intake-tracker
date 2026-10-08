@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Intake - Water Intake Tracker</title>
+  <link rel="stylesheet" href="water-intake.css">
+  <link rel="stylesheet" href="water-intake-page.css">
+  <script src="guard.js"></script>
+  <script src="icons.js"></script>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><img src="assets/water-logo.png" alt="Logo"><span>Water Intake<br>Tracker</span></div>
+    <nav class="menu">
+      <a href="dashboard.html"><span class="ic" data-i="home"></span> Dashboard</a>
+      <a href="water-intake.html" class="active"><span class="ic" data-i="droplet"></span> Water Intake</a>
+      <a href="progress.html"><span class="ic" data-i="chart"></span> Progress</a>
+      <a href="history.html"><span class="ic" data-i="calendar"></span> History</a>
+      <a href="profile.html"><span class="ic" data-i="user"></span> Profile</a>
+      <a href="index.html" id="logoutLink"><span class="ic" data-i="logout"></span> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="Open menu"><span class="ic" data-i="menu"></span></button>
+      <div class="greet"><h1>Water Intake</h1><p>Record and manage the water you drink today.</p></div>
+      <div class="top-right">
+        <button class="bell" aria-label="Notifications"><span class="ic" data-i="bell"></span><i></i></button>
+        <div class="user">
+          <div class="avatar" id="avatar">U</div>
+          <div><strong id="userName"></strong><small id="todayDate"></small></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content wi2">
+      <!-- Add Water -->
+      <div class="card w2-add">
+        <h3><span class="ic" data-i="droplet"></span> Add Water</h3>
+        <div class="w2-quick">
+          <button class="w2-q" data-add="250">+250 ml</button>
+          <button class="w2-q" data-add="500">+500 ml</button>
+          <button class="w2-q" data-add="750">+750 ml</button>
+          <button class="w2-q" data-add="1000">+1000 ml</button>
+        </div>
+        <form class="w2-custom" id="customForm" novalidate>
+          <label for="customInput">Custom Amount</label>
+          <div class="w2-row">
+            <input id="customInput" type="number" min="1" max="5000" inputmode="numeric" placeholder="Amount in ml">
+            <button class="w2-btn" id="customBtn">Add Water</button>
+          </div>
+        </form>
+        <p class="w2-msg" id="addMsg" role="status"></p>
+      </div>
+
+      <!-- Today's entries -->
+      <div class="card w2-list">
+        <h3>Today's Entries</h3>
+        <div class="w2-table" id="tableWrap">
+          <div class="w2-head"><span>Time</span><span>Amount</span><span>Action</span></div>
+          <ul id="entries"></ul>
+        </div>
+        <div class="w2-empty" id="empty" hidden>
+          <div><span class="ic" data-i="droplet"></span></div><b>No water recorded yet.</b><p>Start by adding your first glass of water.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="w2-modal" id="editModal" hidden>
+    <form class="w2-box" id="editForm" novalidate>
+      <h3>Edit Entry</h3>
+      <label>Amount (ml)<input id="editMl" type="number" min="1" max="5000" required></label>
+      <label>Time<input id="editTime" type="time" required></label>
+      <small class="w2-err" id="editErr"></small>
+      <div class="w2-act"><button type="button" class="w2-ghost" id="editCancel">Cancel</button><button class="w2-btn">Save Changes</button></div>
+    </form>
+  </div>
+  <div class="w2-modal" id="delModal" hidden>
+    <div class="w2-box">
+      <h3>Delete Entry</h3><p id="delText"></p>
+      <div class="w2-act"><button class="w2-ghost" id="delCancel">Cancel</button><button class="w2-btn danger" id="delOk">Delete</button></div>
+    </div>
+  </div>
+  <script src="layout.js"></script>
+  <script src="reminders.js"></script>
+  <script src="water-intake.js"></script>
+</body>
+</html>

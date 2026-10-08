@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History - Water Intake Tracker</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="history.css">
+  <script src="guard.js"></script>
+  <script src="icons.js"></script>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><img src="assets/water-logo.png" alt="Logo"><span>Water Intake<br>Tracker</span></div>
+    <nav class="menu">
+      <a href="dashboard.html"><span class="ic" data-i="home"></span> Dashboard</a>
+      <a href="water-intake.html"><span class="ic" data-i="droplet"></span> Water Intake</a>
+      <a href="progress.html"><span class="ic" data-i="chart"></span> Progress</a>
+      <a href="history.html" class="active"><span class="ic" data-i="calendar"></span> History</a>
+      <a href="profile.html"><span class="ic" data-i="user"></span> Profile</a>
+      <a href="index.html" id="logoutLink"><span class="ic" data-i="logout"></span> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main hist-main">
+    <button class="burger" id="burger" aria-label="Open menu"><span class="ic" data-i="menu"></span></button>
+    <section class="panel">
+      <div class="panel-head">
+                <div class="filters">
+          <button class="fbtn active" data-f="today">Today</button>
+          <button class="fbtn" data-f="week">This Week</button>
+          <button class="fbtn" data-f="month">This Month</button>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead><tr><th>Date</th><th>Goal</th><th>Water Consumed</th><th>Progress</th><th>Status</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <script src="layout.js"></script>
+  <script src="reminders.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Setup - Water Intake Tracker</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="layout.css">
+  <link rel="stylesheet" href="profile-setup.css">
+  <script src="icons.js"></script>
+</head>
+<body>
+  <header class="topbar su-top">
+    <div class="brand su-brand"><img src="assets/water-logo.png" alt="Logo"><span>Water Intake Tracker</span></div>
+    <button class="su-out" id="logoutBtn"><span class="ic" data-i="logout"></span> Logout</button>
+  </header>
+  <main class="su-main">
+    <form class="su-card" id="setupForm" novalidate>
+      <div class="su-icon"><span class="ic" data-i="user"></span></div>
+      <h1>Complete Your Profile</h1>
+      <p class="su-sub">Finish this one-time setup to unlock your dashboard and all other pages.</p>
+      <div class="su-grid">
+        <label>Age<input id="age" type="number" min="5" max="120" placeholder="e.g. 21"></label>
+        <label>Gender<select id="gender"><option value="">Select</option><option>Female</option><option>Male</option><option>Other</option></select></label>
+        <label>Weight (kg)<input id="weight" type="number" min="20" max="300" step="0.1" placeholder="e.g. 55"></label>
+        <label>Activity Level<select id="activity"><option value="">Select</option><option>Low</option><option>Moderate</option><option>High</option></select></label>
+        <label class="full">Daily Water Goal (ml)<input id="goal" type="number" min="500" max="6000" step="50" placeholder="e.g. 2000"></label>
+      </div>
+      <p class="su-err" id="err" role="alert"></p>
+      <button class="su-btn" id="saveBtn">Save &amp; Continue</button>
+    </form>
+  </main>
+  <footer class="app-footer"><span class="ic" data-i="droplet"></span> <b>Water Intake Tracker</b> · Stay hydrated, stay healthy · © <span id="yr"></span></footer>
+  <script src="profile-setup.js"></script>
+</body>
+</html>

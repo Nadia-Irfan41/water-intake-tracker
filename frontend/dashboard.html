@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Water Intake Tracker</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="guard.js"></script>
+  <script src="icons.js"></script>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img src="assets/water-logo.png" alt="Logo">
+      <span>Water Intake<br>Tracker</span>
+    </div>
+    <nav class="menu">
+      <a href="dashboard.html" class="active"><span class="ic" data-i="home"></span> Dashboard</a>
+      <a href="water-intake.html"><span class="ic" data-i="droplet"></span> Water Intake</a>
+      <a href="progress.html"><span class="ic" data-i="chart"></span> Progress</a>
+      <a href="history.html"><span class="ic" data-i="calendar"></span> History</a>
+      <a href="profile.html"><span class="ic" data-i="user"></span> Profile</a>
+      <a href="index.html" id="logoutLink"><span class="ic" data-i="logout"></span> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="burger" id="burger" aria-label="Open menu"><span class="ic" data-i="menu"></span></button>
+      <div class="greet">
+        <h1 id="greeting"></h1>
+        <p>Stay hydrated and keep going!</p>
+      </div>
+      <div class="top-right">
+        <button class="bell" aria-label="Notifications"><span class="ic" data-i="bell"></span><i></i></button>
+        <div class="user">
+          <div class="avatar" id="avatar">U</div>
+          <div><strong id="userName"></strong><small id="todayDate"></small></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <h2 class="title">Today's Overview</h2>
+
+      <div class="stats">
+        <div class="stat"><span class="ico"><span class="ic" data-i="target"></span></span><div><small>Today's Goal</small><strong id="goalTxt">Not set</strong></div></div>
+        <div class="stat"><span class="ico"><span class="ic" data-i="droplet"></span></span><div><small>Today's Intake</small><strong id="intakeTxt">0 ml</strong></div></div>
+        <div class="stat"><span class="ico"><span class="ic" data-i="hourglass"></span></span><div><small>Remaining</small><strong id="remainTxt">0 ml</strong></div></div>
+        <div class="stat"><span class="ico"><span class="ic" data-i="trend"></span></span><div><small>Progress</small><strong id="pctTxt">0%</strong></div></div>
+      </div>
+
+      <div class="grid">
+        <div class="card progress-card">
+          <h3>Today's Progress</h3>
+          <div class="ring">
+            <svg viewBox="0 0 200 200">
+              <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#06b6d4"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>
+              <circle cx="100" cy="100" r="86" class="track"/>
+              <circle cx="100" cy="100" r="86" class="bar" id="bar"/>
+            </svg>
+            <div class="ring-text"><b id="ringPct">0%</b><span id="ringAmt">0 ml</span></div>
+          </div>
+          <p class="amount" id="amountLine">0 ml</p>
+          <p class="status" id="status"></p>
+        </div>
+
+        <div class="card add-card">
+          <h3>Quick Add</h3>
+          <button class="btn primary" data-add="250">+ 250 ml</button>
+          <button class="btn primary" data-add="500">+ 500 ml</button>
+          <button class="btn primary" data-add="750">+ 750 ml</button>
+          <button class="btn light" id="customBtn">Custom Amount</button>
+          <div class="custom" id="customBox" hidden>
+            <input type="number" id="customInput" placeholder="Enter ml" min="1" step="1">
+            <button class="btn primary" id="customAdd">Add</button>
+            <small class="err" id="customErr"></small>
+          </div>
+        </div>
+
+        <div class="card list-card">
+          <h3>Today's Water Intake</h3>
+          <ul id="entries"></ul>
+          <div class="total">Total Today: <b id="totalTxt">0 ml</b></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="layout.js"></script>
+  <script src="reminders.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

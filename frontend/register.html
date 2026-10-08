@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Water Intake Tracker</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+  <main class="page">
+    <section class="left">
+      <img src="assets/water-logo.png" alt="Water Intake Tracker logo" class="logo">
+      <h1>Water Intake Tracker</h1>
+      <p>Create your account<br>and start your hydration journey!</p>
+    </section>
+
+    <section class="card">
+      <div class="card-top">
+        <a href="index.html" class="back" aria-label="Back to home">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+        </a>
+        <h2>Register</h2>
+        <span class="card-top-spacer" aria-hidden="true"></span>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="Enter your full name">
+        <span class="error" id="nameError"></span>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <span class="error" id="emailError"></span>
+
+        <label for="password">Password</label>
+        <div class="password-box">
+          <input type="password" id="password" placeholder="Enter password">
+          <button type="button" class="eye" data-target="password" aria-label="Show password" aria-pressed="false">
+            <svg class="icon-eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="icon-eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.9 10.9 0 0 1 12 19c-6.4 0-10-7-10-7a18.5 18.5 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.7 9.7 0 0 1 12 4c6.4 0 10 7 10 7a18.6 18.6 0 0 1-2.16 3.19"/><path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"/><path d="M2 2l20 20"/></svg>
+          </button>
+        </div>
+        <span class="error" id="passwordError"></span>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-box">
+          <input type="password" id="confirmPassword" placeholder="Confirm password">
+          <button type="button" class="eye" data-target="confirmPassword" aria-label="Show password" aria-pressed="false">
+            <svg class="icon-eye" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg class="icon-eye-off" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.94 17.94A10.9 10.9 0 0 1 12 19c-6.4 0-10-7-10-7a18.5 18.5 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.7 9.7 0 0 1 12 4c6.4 0 10 7 10 7a18.6 18.6 0 0 1-2.16 3.19"/><path d="M14.12 14.12A3 3 0 1 1 9.88 9.88"/><path d="M2 2l20 20"/></svg>
+          </button>
+        </div>
+        <span class="error" id="confirmError"></span>
+
+        <button type="submit" class="submit">Create Account</button>
+        <p class="success" id="successMsg"></p>
+        <p class="login-text">Already have an account? <a href="#" id="loginLink">Login</a></p>
+      </form>
+    </section>
+  </main>
+  <script src="register.js"></script>
+</body>
+</html>

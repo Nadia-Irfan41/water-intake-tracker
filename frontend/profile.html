@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Water Intake Tracker</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="profile.css">
+  <script src="guard.js"></script>
+  <script src="icons.js"></script>
+</head>
+<body>
+  <div class="overlay" id="overlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><img src="assets/water-logo.png" alt="Logo"><span>Water Intake<br>Tracker</span></div>
+    <nav class="menu">
+      <a href="dashboard.html"><span class="ic" data-i="home"></span> Dashboard</a>
+      <a href="water-intake.html"><span class="ic" data-i="droplet"></span> Water Intake</a>
+      <a href="progress.html"><span class="ic" data-i="chart"></span> Progress</a>
+      <a href="history.html"><span class="ic" data-i="calendar"></span> History</a>
+      <a href="profile.html" class="active"><span class="ic" data-i="user"></span> Profile</a>
+      <a href="index.html" class="logoutLink"><span class="ic" data-i="logout"></span> Logout</a>
+    </nav>
+  </aside>
+
+  <div class="main prof-main">
+    <button class="burger" id="burger" aria-label="Open menu"><span class="ic" data-i="menu"></span></button>
+    <div class="wrap">
+
+      <!-- 1. Header -->
+      <header class="p-head">
+        <div class="avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </div>
+        <h1 id="hName">Your Name</h1>
+        <p>Manage your personal information and water goal.</p>
+      </header>
+
+      <!-- 2. Personal information -->
+      <section class="pcard" id="infoCard">
+        <div class="ctitle"><span class="ci"><span class="ic" data-i="user"></span></span><h2>Personal Information</h2></div>
+        <form id="infoForm" novalidate>
+          <div class="field"><label for="fName">Name</label><div class="val" data-v="name"></div><input id="fName" name="name" maxlength="40" hidden></div>
+          <div class="field"><label for="fEmail">Email</label><div class="val muted" data-v="email"></div><input id="fEmail" disabled hidden></div>
+          <div class="field"><label for="fAge">Age</label><div class="val" data-v="age"></div><input id="fAge" name="age" type="number" min="5" max="120" hidden></div>
+          <div class="field"><label for="fGender">Gender</label><div class="val" data-v="gender"></div>
+            <select id="fGender" name="gender" hidden><option value="">Select</option><option>Female</option><option>Male</option><option>Other</option></select></div>
+          <div class="field"><label for="fWeight">Weight (kg)</label><div class="val" data-v="weight"></div><input id="fWeight" name="weight" type="number" min="20" max="300" step="0.1" hidden></div>
+          <div class="field"><label for="fActivity">Activity Level</label><div class="val" data-v="activity"></div>
+            <select id="fActivity" name="activity" hidden><option value="">Select</option><option>Low</option><option>Moderate</option><option>High</option></select></div>
+          <p class="msg" id="infoMsg" role="status"></p>
+          <div class="cact">
+            <button type="button" class="pbtn" id="infoCancel" hidden>Cancel</button>
+            <button type="button" class="pbtn fill" id="infoEdit"><span class="ic" data-i="pencil"></span> Edit Profile</button>
+            <button type="submit" class="pbtn fill" id="infoSave" hidden>Save Changes</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- 3. Water goal -->
+      <section class="pcard">
+        <div class="ctitle"><span class="ci"><span class="ic" data-i="droplet"></span></span><h2>Water Goal</h2></div>
+        <form id="goalForm" novalidate>
+          <div class="field"><label for="fGoal">Daily Goal</label><div class="val big" id="goalVal">Not set</div>
+            <input id="fGoal" type="number" min="500" max="6000" step="50" placeholder="e.g. 2000" hidden></div>
+          <p class="msg" id="goalMsg" role="status"></p>
+          <div class="cact">
+            <button type="button" class="pbtn" id="goalCancel" hidden>Cancel</button>
+            <button type="button" class="pbtn fill" id="goalEdit"><span class="ic" data-i="pencil"></span> Edit Goal</button>
+            <button type="submit" class="pbtn fill" id="goalSave" hidden>Save Changes</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- 4. Account settings -->
+      <section class="pcard">
+        <div class="ctitle"><span class="ci"><span class="ic" data-i="settings"></span></span><h2>Account Settings</h2></div>
+        <button class="arow" id="pwBtn"><span><span class="ic" data-i="lock"></span> Change Password</span><i>›</i></button>
+        <button class="arow danger" id="logoutBtn"><span><span class="ic" data-i="logout"></span> Logout</span><i>›</i></button>
+      </section>
+    </div>
+  </div>
+
+  <div class="modal" id="pwModal" hidden>
+    <form class="box" id="pwForm" novalidate>
+      <h3>Change Password</h3>
+      <label>Current password<input id="pwOld" type="password" autocomplete="current-password" required></label>
+      <label>New password<input id="pwNew" type="password" autocomplete="new-password" minlength="6" required></label>
+      <label>Confirm new password<input id="pwNew2" type="password" autocomplete="new-password" required></label>
+      <small class="err" id="pwErr"></small>
+      <div class="mact"><button type="button" class="pbtn" data-close>Cancel</button><button class="pbtn fill">Update Password</button></div>
+    </form>
+  </div>
+
+  <div class="modal" id="logoutModal" hidden>
+    <div class="box">
+      <h3>Logout</h3>
+      <p>Are you sure you want to log out?</p>
+      <div class="mact"><button class="pbtn" data-close>Cancel</button><button class="pbtn danger fill" id="confirmOut">Yes, Logout</button></div>
+    </div>
+  </div>
+  <script src="layout.js"></script>
+  <script src="reminders.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>
